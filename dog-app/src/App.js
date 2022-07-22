@@ -16,7 +16,7 @@ function App() {
       <h1>Dog App</h1>
       <RandomDogForm setDogImage={setDogImage} />
       <img 
-        src={dogImage} 
+        src={dogImage.url} 
         alt="">
       </img>
     </div>

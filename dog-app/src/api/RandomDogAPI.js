@@ -1,13 +1,13 @@
 const ENDPOINT = "https://dog.ceo/api/breeds/image/random";
 
-const DogAPI = function(options){
+const RandomDogAPI = function(options){
   this.source = "";
   if(options){
     Object.assign(this,options);
   }
 }
 
-DogAPI.prototype.getRandomDog = function(){
+RandomDogAPI.prototype.getRandomDog = function(){
   return fetch(`${ENDPOINT}`)
     .then((response) => response.json())
     .then((currentDog) =>{
@@ -16,4 +16,4 @@ DogAPI.prototype.getRandomDog = function(){
     });
 }
 
-export {DogAPI};
+export {RandomDogAPI};

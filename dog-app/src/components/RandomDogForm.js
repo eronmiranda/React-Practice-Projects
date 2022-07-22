@@ -1,13 +1,22 @@
-import {DogAPI} from '../api/RandomDogAPI.js';
+import {RandomDogAPI} from '../api/RandomDogAPI.js';
+import { DogAPI } from '../api/DogAPI.js';
 
 const DogRandomForm = function(props){
   const onSubmitHandler = (event) =>{
     event.preventDefault();
-    // implement code here.
+    // Recently used random dog API.
+    // let randomDogAPI = new RandomDogAPI();
     let dogAPI = new DogAPI();
-
+    // randomDogAPI.getRandomDog()
+    //   .then((currentDog) =>{
+    //     props.setDogImage(currentDog);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
     dogAPI.getRandomDog()
-      .then((currentDog) =>{
+      .then((currentDog) => {
+        console.log(currentDog);
         props.setDogImage(currentDog);
       })
       .catch((error) => {
