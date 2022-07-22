@@ -3,20 +3,21 @@ import React, { useState } from 'react';
 import RandomDogForm from './components/RandomDogForm';
 
 function App() {
-  const [dogImage, setDogImage] = useState({});
+  const [dog, setDog] = useState({});
 
   // Only used for checking if the state has changed.
   React.useEffect(()=> {
-    console.log("dogImage changed in the app component.")
-    console.log(dogImage);
-  }, [dogImage]);
+    console.log("dog changed in the app component.")
+    console.log(dog);
+  }, [dog]);
 
   return (
     <div className="App">
       <h1>Dog App</h1>
-      <RandomDogForm setDogImage={setDogImage} />
+      <RandomDogForm setDog={setDog} />
+      <h4>My breed is {dog.breedName}</h4>
       <img 
-        src={dogImage.url} 
+        src={dog.url} 
         alt="">
       </img>
     </div>

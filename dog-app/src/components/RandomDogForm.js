@@ -16,8 +16,9 @@ const DogRandomForm = function(props){
     //   });
     dogAPI.getRandomDog()
       .then((currentDog) => {
-        console.log(currentDog);
-        props.setDogImage(currentDog);
+        if(currentDog.dogData){
+          props.setDog(currentDog.dogData);
+        }
       })
       .catch((error) => {
         console.log(error);
