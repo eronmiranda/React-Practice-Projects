@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import RandomDogForm from './components/RandomDogForm';
 
 function App() {
+  const [dogImage, setDogImage] = useState({});
+
+  // Only used for checking if the state has changed.
+  React.useEffect(()=> {
+    console.log("dogImage changed in the app component.")
+    console.log(dogImage);
+  }, [dogImage]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Dog App</h1>
+      <RandomDogForm setDogImage={setDogImage} />
+      <img 
+        src={dogImage} 
+        alt="">
+      </img>
     </div>
   );
 }
