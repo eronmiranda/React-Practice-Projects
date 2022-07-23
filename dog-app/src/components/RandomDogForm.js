@@ -1,5 +1,6 @@
 import {RandomDogAPI} from '../api/RandomDogAPI.js';
 import { DogAPI } from '../api/DogAPI.js';
+import Button from '@mui/material/Button';
 
 const DogRandomForm = function(props){
   const onSubmitHandler = (event) =>{
@@ -27,7 +28,7 @@ const DogRandomForm = function(props){
   return(
     <div>
       <form onSubmit={onSubmitHandler}>
-        <button type="submit">Get Doggo</button>
+        <Button type="submit" variant="contained">Get Doggo</Button>
       </form>
     </div>
   );

@@ -18,7 +18,7 @@ function App() {
       <h4>My breed is {dog.breedName}</h4>
       <img 
         src={dog.url} 
-        alt="">
+        alt={dog.breedName}>
       </img>
     </div>
   );

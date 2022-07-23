@@ -11,19 +11,28 @@ const DogAPI = function(options){
     return fetch(`${ENDPOINT}images/search?api_key=${API_KEY}`)
       .then((response) => response.json())
       .then((currentDog) =>{
-        console.log(currentDog);
         let dogData = [];
         if(currentDog[0].breeds[0]){
+          let breed = currentDog[0].breeds[0];
+
           dogData = {
-            url:`${currentDog[0].url}`,
-            breedName: `${currentDog[0].breeds[0].name}`
+            breedName: breed.name,
+            bredFor: breed.bred_for,
+            breedGroup: breed.breed_group,
+            lifeSpan: breed.life_span,
+            temperament: breed.temperament,
+            height: {
+              imperial: breed.height.imperial,
+              metric: breed.height.metric
+            },
+            weight: {
+              imperial: breed.weight.imperial,
+              metric: breed.weight.metric
+            }
           };
         }
-        else{
-          dogData = {
-            url:`${currentDog[0].url}`
-          };
-        }
+        // Seperated this for data that dont have breed information.
+        dogData.url = `${currentDog[0].url}`;
         
         return Object.assign(this.dogData,{dogData});
       });
