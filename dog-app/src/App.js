@@ -13,12 +13,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Dog App</h1>
+      <h1>Dog Randomizer App</h1>
       <RandomDogForm setDog={setDog} />
-      <h4>My breed is {dog.breedName}</h4>
+      <h4><strong>My breed is</strong> {dog.breedName}</h4>
+      <p><strong>Bred for:</strong> {dog.bredFor}</p>
+      <p><strong>Breed group:</strong> {dog.breedGroup}</p>
+      <p><strong>Life Span:</strong> {dog.lifeSpan}</p>
+      <p><strong>Temperament:</strong> {dog.temperament}</p>
       <img 
         src={dog.url} 
-        alt={dog.breedName}>
+        alt={dog.breedName}
+        className="responsiveImage">
       </img>
     </div>
   );
