@@ -3,6 +3,7 @@ const ENDPOINT = "https://api.thedogapi.com/v1/";
 
 const DogAPI = function(options){
   this.dogData = {};
+  this.breedList = [];
   if(options){
     Object.assign(this,options);
   }
@@ -36,6 +37,16 @@ const DogAPI = function(options){
         
         return Object.assign(this.dogData,{dogData});
       });
+  }
+
+  DogAPI.prototype.getDogList = () => {
+    return fetch(`${ENDPOINT}breeds?api_key=${API_KEY}`)
+    .then((response) => response.json())
+    .then((breedData) =>{
+      let breedList = breedData.map((breedData)=> breedData.name);
+
+      return Object.assign(this.breedList,{breedList});
+    });
   }
 }
 

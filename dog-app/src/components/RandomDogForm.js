@@ -1,20 +1,12 @@
-import {RandomDogAPI} from '../api/RandomDogAPI.js';
 import { DogAPI } from '../api/DogAPI.js';
 import Button from '@mui/material/Button';
 
 const DogRandomForm = function(props){
   const onSubmitHandler = (event) =>{
     event.preventDefault();
-    // Recently used random dog API.
-    // let randomDogAPI = new RandomDogAPI();
+
     let dogAPI = new DogAPI();
-    // randomDogAPI.getRandomDog()
-    //   .then((currentDog) =>{
-    //     props.setDogImage(currentDog);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+
     dogAPI.getRandomDog()
       .then((currentDog) => {
         if(currentDog.dogData){
