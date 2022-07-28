@@ -12,12 +12,14 @@ function App() {
 
   return (
     <div className="App">
-      <UserOutput firstText="Welcome to Base Syntax Assignment"></UserOutput>
-      <UserOutput firstText="Created by Eronielle Miranda"></UserOutput>
+      <UserOutput firstText="Welcome to Base Syntax Assignment" />
+      <UserOutput firstText="Created by Eronielle Miranda" />
       <UserOutput 
-      firstText="User Name:"
-      userName={userName}></UserOutput>
-      <UserInput onChange={userNameChangeHandler} userName={userName}></UserInput>
+        firstText="User Name:"
+        userName={userName} />
+      <UserInput 
+        onChange={userNameChangeHandler} 
+        userName={userName}/>
     </div>
   );
 }
